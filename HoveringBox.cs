@@ -60,13 +60,6 @@ public class HoveringBox : MonoBehaviour
 
 	public bool playerControlled;
 
-	// [Header("Drifting")]
-	// bool driftDesired;
-	// public float timeToEnterFullDrift;
-	// float timeDrifting;
-	// public float driftLateralFriction;
-	// public AnimationCurve driftLateralFrictionCurve;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -110,14 +103,14 @@ public class HoveringBox : MonoBehaviour
 		}
 
 		// Test stability.
-		// if (Input.GetKeyDown(KeyCode.Space))
-		// {
-		// 	Vector2 randomVector2 = Random.insideUnitCircle;
-		// 	Vector3 rotationAxis = new Vector3(randomVector2.x, 0f, randomVector2.y);
-		// 	rb.AddTorque(rotationAxis * 100f, ForceMode.Impulse);
-		// 	rb.AddForce(-castDirection * 50f, ForceMode.Impulse);
-		// 	trajectoryFound = false;
-		// }
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			Vector2 randomVector2 = Random.insideUnitCircle;
+			Vector3 rotationAxis = new Vector3(randomVector2.x, 0f, randomVector2.y);
+			rb.AddTorque(rotationAxis * 100f, ForceMode.Impulse);
+			rb.AddForce(-castDirection * 50f, ForceMode.Impulse);
+			trajectoryFound = false;
+		}
 	}
 
 	public bool UpsideDown => Vector3.Dot(Vector3.up, transform.up) < 0;
